@@ -18,7 +18,7 @@ class CircleTest extends \PHPUnit_Framework_TestCase
             $this->expectException(InvalidArgumentException::class);
         }
 
-        new Circle($radius);
+        $circle = new Circle($radius);
     }
 
     public function provideCircleRadiusData()
