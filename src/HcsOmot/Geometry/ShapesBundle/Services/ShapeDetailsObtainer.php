@@ -33,24 +33,24 @@ class ShapeDetailsObtainer
         ];
     }
 
-    private function calculateTriangleArea(Triangle $triangle)
+    public function calculateTriangleArea(Triangle $triangle)
     {
         $semiperimeter = $this->calculateTrianglePerimeter($triangle) / 2;
 
         return sqrt($semiperimeter * ($semiperimeter - $triangle->getSideA()) * ($semiperimeter - $triangle->getSideB()) * ($semiperimeter - $triangle->getSideC()));
     }
 
-    private function calculateTrianglePerimeter(Triangle $triangle)
+    public function calculateTrianglePerimeter(Triangle $triangle)
     {
         return $triangle->getSideA() + $triangle->getSideB() + $triangle->getSideC();
     }
 
-    private function calculateCircleArea(Circle $circle)
+    public function calculateCircleArea(Circle $circle)
     {
         return M_PI * ($circle->getRadius() ** 2);
     }
 
-    private function calculateCirclePerimeter(Circle $circle)
+    public function calculateCirclePerimeter(Circle $circle)
     {
         return 2 * $circle->getRadius() * M_PI;
     }
