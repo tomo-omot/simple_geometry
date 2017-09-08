@@ -4,6 +4,7 @@ namespace HcsOmot\Geometry\ShapesBundle\Controller;
 
 use HcsOmot\Geometry\ShapesBundle\Entity\Circle;
 use HcsOmot\Geometry\ShapesBundle\Entity\Triangle;
+use HcsOmot\Geometry\ShapesBundle\Services\PerimeterAreaSum;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -61,5 +62,34 @@ class DefaultController extends Controller
         $response = new JsonResponse($shapeDetails);
 
         return $response;
+    }
+
+    /**
+     * @Route("/triangle_circle_sum")
+     * @Method("GET")
+     *
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function getSumOfAreasForAPairOfRandomShapes()
+    {
+        $circle = new Circle(5);
+        $triangle = new Triangle(2,3,4);
+
+        $perimeterAreaSumCalculator = new PerimeterAreaSum($triangle, $circle);
+
+        $AreaSum = $perimeterAreaSumCalculator->getAreaSum();
+
+        $perimeterSum = $perimeterAreaSumCalculator->getPerimeterSum();
+
+        $data = [
+            'perimeterSum' => $perimeterSum,
+            'areaSum' => $AreaSum,
+        ];
+
+        $response = new JsonResponse($data);
+
+        return $response;
+
     }
 }
