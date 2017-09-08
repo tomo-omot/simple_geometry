@@ -3,7 +3,6 @@
 namespace HcsOmot\Geometry\ShapesBundle\Services;
 
 use HcsOmot\Geometry\ShapesBundle\Entity\Circle;
-use HcsOmot\Geometry\ShapesBundle\Entity\ShapeInterface;
 use HcsOmot\Geometry\ShapesBundle\Entity\Triangle;
 
 class ShapeDetailsObtainer
