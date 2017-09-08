@@ -1,6 +1,5 @@
 <?php
 
-
 namespace HcsOmot\Geometry\ShapesBundle\Services;
 
 use HcsOmot\Geometry\ShapesBundle\Entity\Circle;
@@ -20,7 +19,6 @@ class PerimeterAreaSum
     private $perimeterSum;
 
     private $areaSum;
-
 
     public function __construct(Triangle $triangle, Circle $circle)
     {

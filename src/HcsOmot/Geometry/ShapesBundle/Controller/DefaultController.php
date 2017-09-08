@@ -68,13 +68,12 @@ class DefaultController extends Controller
      * @Route("/triangle_circle_sum")
      * @Method("GET")
      *
-     *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function getSumOfAreasForAPairOfRandomShapes()
     {
-        $circle = new Circle(5);
-        $triangle = new Triangle(2,3,4);
+        $circle   = new Circle(5);
+        $triangle = new Triangle(2, 3, 4);
 
         $perimeterAreaSumCalculator = new PerimeterAreaSum($triangle, $circle);
 
@@ -84,12 +83,11 @@ class DefaultController extends Controller
 
         $data = [
             'perimeterSum' => $perimeterSum,
-            'areaSum' => $AreaSum,
+            'areaSum'      => $AreaSum,
         ];
 
         $response = new JsonResponse($data);
 
         return $response;
-
     }
 }
