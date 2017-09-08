@@ -5,11 +5,9 @@ namespace HcsOmot\Geometry\ShapesBundle\Entity;
 use InvalidArgumentException;
 
 /**
- * Class Triangle
- *
- * @package HcsOmot\Geometry\ShapesBundle\Entity
+ * Class Triangle.
  */
-class Triangle implements ShapeInterface
+class Triangle
 {
     /**
      * @var float a triangle side
@@ -23,8 +21,6 @@ class Triangle implements ShapeInterface
      * @var float a triangle side
      */
     protected $sideC;
-    protected $area;
-    protected $perimeter;
 
     /**
      * Triangle constructor.
@@ -41,26 +37,23 @@ class Triangle implements ShapeInterface
             $this->sideA = $sideA;
             $this->sideB = $sideB;
             $this->sideC = $sideC;
-
-            $this->calculatePerimeter();
-            $this->calculateArea();
         }
-
     }
 
     /**
-     * Check if a valid circle can be constructed
+     * Check if a valid circle can be constructed.
      *
      * @param float $sideA
      * @param float $sideB
      * @param float $sideC
      *
-     * @return bool
      * @throws \InvalidArgumentException
+     *
+     * @return bool
      */
     private function isValid(float $sideA, float $sideB, float $sideC): bool
     {
-        if (($sideA + $sideB > $sideC) && ($sideA + $sideC > $sideB) && ($sideB + $sideC > $sideA)){
+        if (($sideA + $sideB > $sideC) && ($sideA + $sideC > $sideB) && ($sideB + $sideC > $sideA)) {
             return true;
         }
 
@@ -68,40 +61,32 @@ class Triangle implements ShapeInterface
     }
 
     /**
-     * Return the perimeter size of triangle
+     * Get triangle side A.
+     *
      * @return float
      */
-    public function getPerimeter(): float
+    public function getSideA(): float
     {
-        return $this->perimeter;
+        return $this->sideA;
     }
 
     /**
-     * Return the area size of triangle
+     * Get triangle side B.
+     *
      * @return float
      */
-    public function getArea(): float
+    public function getSideB(): float
     {
-        return $this->area;
-    }
-
-
-    /**
-     * Calculate the perimeter size of triangle
-     */
-    private function calculatePerimeter()
-    {
-        $this->perimeter = $this->sideA + $this->sideB + $this->sideC;
+        return $this->sideB;
     }
 
     /**
-     * * Calculate the area of the triangle
+     * Get triangle side C.
+     *
+     * @return float
      */
-    private function calculateArea()
+    public function getSideC(): float
     {
-        $semiperimeter = $this->perimeter / 2;
-        $area = sqrt($semiperimeter * ($semiperimeter - $this->sideA)*($semiperimeter - $this->sideB)*($semiperimeter - $this->sideC));
-
-        $this->area = $area;
+        return $this->sideC;
     }
 }
