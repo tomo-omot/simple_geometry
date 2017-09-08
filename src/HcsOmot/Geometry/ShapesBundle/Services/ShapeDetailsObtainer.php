@@ -8,7 +8,7 @@ use HcsOmot\Geometry\ShapesBundle\Entity\Triangle;
 
 class ShapeDetailsObtainer
 {
-    public function getShapeDetails(ShapeInterface $shape): array
+    public function getShapeDetails($shape): array
     {
         $shapeType = get_class($shape);
         switch ($shapeType) {
