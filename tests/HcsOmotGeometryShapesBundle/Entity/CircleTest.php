@@ -9,8 +9,9 @@ class CircleTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider provideCircleRadiusData
+     *
      * @param float $radius
-     * @param bool $isCircleValid
+     * @param bool  $isCircleValid
      */
     public function testCanAValidCircleBeInstantiated(float $radius, bool $isCircleValid)
     {
@@ -34,12 +35,13 @@ class CircleTest extends \PHPUnit_Framework_TestCase
             [0.0, false],
             [-0.1, false],
             [-2.0, false],
-            [-2, false]
+            [-2, false],
         ];
     }
 
     /**
      * @dataProvider provideCircleRadiusAndPerimeterSize
+     *
      * @param float $radius
      * @param float $expectedPerimeterSize
      */
@@ -48,7 +50,6 @@ class CircleTest extends \PHPUnit_Framework_TestCase
         $circle = new Circle($radius);
 
         $this->assertEquals($expectedPerimeterSize, $circle->getPerimeter(), '', 0.0000001);
-
     }
 
     public function provideCircleRadiusAndPerimeterSize()
@@ -66,6 +67,7 @@ class CircleTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideCircleRadiusAndAreaSize
+     *
      * @param float $radius
      * @param float $expectedAreaSize
      */

@@ -13,7 +13,7 @@ class TriangleTest extends \PHPUnit_Framework_TestCase
      * @param float $sideA
      * @param float $sideB
      * @param float $sideC
-     * @param bool $isTriangleValid
+     * @param bool  $isTriangleValid
      */
     public function testCanAValidTriangleBeInstatiated(float $sideA, float $sideB, float $sideC, bool $isTriangleValid)
     {
